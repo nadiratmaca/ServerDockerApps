@@ -13,6 +13,7 @@
 !/.gitignore
 !/*.ini
 !/.conf
+!/*.cnf
 !/*.php
 
 

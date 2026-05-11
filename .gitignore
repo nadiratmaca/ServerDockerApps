@@ -7,7 +7,7 @@
 # 3. Belirli dosya uzantılarını ve isimlerini serbest bırak (whitelist)
 !/Dockerfile
 !/docker-compose.yml
-!/docker-compose.y*
+!/docker-*.y*
 !/.env
 !/.env*
 !/.gitignore

@@ -5,19 +5,17 @@
 !*/
 
 # 3. Belirli dosya uzantılarını ve isimlerini serbest bırak (whitelist)
-!Dockerfile
-!docker-compose.yml
-!docker-compose.y*
-!.env
-!.env*
-
-# Bu dosyalar hariç (Ünlem işareti 'hariç' demektir)
 !/Dockerfile
 !/docker-compose.yml
 !/docker-compose.y*
 !/.env
 !/.env*
 !/.gitignore
+!/*.ini
+!/.conf
+!/*.php
+
+
 
 # Alt klasörlerdeki aynı isimli dosyaları da dahil et
 !**/Dockerfile
@@ -25,3 +23,13 @@
 !**/docker-compose.y*
 !**/.env
 !**/.env*
+
+
+
+
+
+
+
+
+
+

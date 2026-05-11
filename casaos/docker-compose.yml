@@ -1,0 +1,17 @@
+include:
+   - /${WS_SERVER}/docker-networks.yml
+##########
+services:
+  casa:
+    image: dockurr/casa
+    container_name: server-casaos
+    #ports:
+    #  - 8080:8080
+    volumes:
+      - ./data:/DATA
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+    stop_grace_period: 1m
+    networks:
+      - default
+    

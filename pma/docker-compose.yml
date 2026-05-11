@@ -1,0 +1,28 @@
+include:
+   - ${WS_SERVER}/docker-networks.yml
+services:  
+  # phpmyadmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: server-phpmyadmin
+    restart: unless-stopped
+    # ports:
+    #   - 8010:80
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_SAVEDIR: /var/lib/phpmyadmin/save/
+      #MEMORY_LIMIT: 
+      #MAX_EXECUTION_TIME: 
+    volumes:
+      - ./data/:/var/lib/phpmyadmin/save/      
+      - ./config.inc.php:/etc/phpmyadmin/config.inc.php
+    networks:
+      - web
+      - db
+
+  
+
+networks:
+  db: 
+    external: true
+  

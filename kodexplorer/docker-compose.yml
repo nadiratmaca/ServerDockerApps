@@ -1,0 +1,15 @@
+services:
+    kodexplorer:
+        container_name: server-kodexplorer
+        image: kodcloud/kodexplorer
+        restart: unless-stopped
+        user: "0:0"  # Root yetkisiyle çalıştır
+        cap_add:
+            - ALL
+        privileged: true
+        networks:
+            - web
+        volumes:
+            - ./kodexplorer:/var/www/html
+            - /WEBServer/:/var/www/html/data/User/admin/home/server/
+            - /www/:/var/www/html/data/User/admin/home/SiteRoot/

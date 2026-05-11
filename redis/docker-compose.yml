@@ -1,0 +1,45 @@
+include:
+  - ${WS_SERVER}/docker-networks.yml
+
+services:  
+  # Redis Sunucusu
+  redis:
+    container_name: server-redis
+    image: redis:alpine
+    restart: always
+    command: redis-server --appendonly yes --maxmemory 1024mb --maxmemory-policy allkeys-lru
+    networks:
+      - web
+      - db
+
+  # Redis Görsel Yönetim Paneli (GUI)
+  redisinsight:
+    image: redis/redisinsight:latest
+    container_name: redisinsight
+    restart: unless-stopped
+    ports:
+      - "5540:5540"
+    volumes:
+      - redisinsight_data:/data
+    networks:
+      - db
+      - web
+    depends_on:
+      - redis
+
+#   # Redis Metrik İzleyici (Prometheus için)
+#   redis-exporter:
+#     image: oliver006/redis_exporter:latest
+#     container_name: redis-exporter
+#     restart: unless-stopped
+#     environment:
+#       - REDIS_ADDR=redis://redis:6379
+#     ports:
+#       - "9121:9121"
+#     networks:
+#       - db
+#     depends_on:
+#       - redis
+
+# volumes:
+#   redisinsight_data:

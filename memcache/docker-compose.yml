@@ -1,0 +1,11 @@
+services:
+  memcached:
+    container_name: server-memcache
+    image: memcached:latest
+    restart: unless-stopped
+    command:
+      - --conn-limit=1024
+      - --memory-limit=64
+      - --threads=4
+    networks:
+      - web

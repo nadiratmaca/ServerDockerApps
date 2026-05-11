@@ -1,0 +1,16 @@
+include:
+  - ../doceker-compose-network.yml
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: server-vaultwarden
+    restart: unless-stopped
+    environment:
+      - SIGNUPS_ALLOWED=true  # İlk kayıt sonrası güvenliğiniz için false yapabilirsiniz
+      - ADMIN_TOKEN=uebauqui3pheeY1dingij2ohla0quequ1aphoothei6CeiK0seehephoo5thi5rao3shiej8quicoo7Uv0Aeciel0oubo5Eap1go6maeLu4to0poh7Daish2aedieh4g # Yönetim paneli için
+    volumes:
+      - ./vw-data:/data
+    # ports:
+    #   - 8080:80
+    networks:
+      - web

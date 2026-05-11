@@ -1,0 +1,32 @@
+include:
+   - ${WS_SERVER}/docker-networks.yml
+services:
+  proxy:
+    image: 'jc21/nginx-proxy-manager:latest' 
+    container_name: server-proxy
+    restart: always
+    ports:
+      - '443:443'
+      - '80:80'
+      #- '8443:81'
+      # - "80/tcp"
+      # - "81/tcp"
+      # - "443/tcp"
+      # - "1500/tcp"
+      # - "1501/tcp"
+      # - "1502/tcp"
+      # - "1503/tcp"
+    environment:
+      TZ: "Europa/istanbul"
+      #iTP_THEME: dark
+      #TP_THEME: dracula
+    # healthcheck:
+    #   test: ["CMD", "/bin/check-health"]
+    #   interval: 30s
+    #   timeout: 3s
+    volumes:
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt
+     # - ./npm/theme/98-themepark:/etc/cont-init.d/98-themepark
+    networks:
+      - web

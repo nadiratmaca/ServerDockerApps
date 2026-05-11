@@ -1,0 +1,35 @@
+include:
+   - ${WS_SERVER}/docker-networks.yml
+services:  
+  mariadb:
+      image: mariadb:noble
+      container_name: server-mariadb
+      restart: always
+      #ports:
+      #  - 3306:3306      
+      environment:
+        MARIADB_ROOT_PASSWORD: xaig7gi2ietoh3dooL9aeh6meTaebahNee6ace8faa6Sie0iez6uurai2Ihaafae
+        # MARIADB_RANDOM_ROOT_PASSWORD: 1
+        # MARIADB_DATABASE: ${DB}
+        # MARIADB_USER: ${DB_USER}
+        # MARIADB_PASSWORD: ${DB_PASS}
+      volumes:
+        - "./data/:/var/lib/mysql/"
+        - "./my.cnf:/etc/mysql/conf.d/custom.cnf:ro"
+      shm_size: '1gb' # Shared memory miktarını artırın
+      tmpfs:
+      - /tmp:rw,size=512m # Geçici tabloları RAM üzerinde çalıştırarak Disk I/O yükünü azaltır
+      logging:
+        driver: "none" # Tüm Docker log üretimini bu konteynır için kapatır
+      ulimits:
+        nofile:
+          soft: 65535
+          hard: 65535
+      deploy:
+        resources:
+          limits:
+            # Sunucu RAM'inizin durumuna göre (Örn: 16GB RAM varsa 8-10GB sınırı)
+            memory: 16G
+      networks:
+        - db
+        - web

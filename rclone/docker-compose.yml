@@ -1,0 +1,8 @@
+services:
+  rclone:
+    image: rclone/rclone:latest
+    container_name: rclone
+    volumes:
+      - /WEBServer/serverapp/rclone/config:/config/rclone
+      - /WEBServer/serverapp/rclone/backup:/backup
+    entrypoint: ["rclone"]

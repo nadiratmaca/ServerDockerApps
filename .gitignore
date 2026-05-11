@@ -1,0 +1,27 @@
+# 1. Önce her şeyi görmezden gel (ignore)
+*
+
+# 2. Klasör yapısında gezinebilmesi için dizinleri engelleme
+!*/
+
+# 3. Belirli dosya uzantılarını ve isimlerini serbest bırak (whitelist)
+!Dockerfile
+!docker-compose.yml
+!docker-compose.y*
+!.env
+!.env*
+
+# Bu dosyalar hariç (Ünlem işareti 'hariç' demektir)
+!/Dockerfile
+!/docker-compose.yml
+!/docker-compose.y*
+!/.env
+!/.env*
+!/.gitignore
+
+# Alt klasörlerdeki aynı isimli dosyaları da dahil et
+!**/Dockerfile
+!**/docker-compose.yml
+!**/docker-compose.y*
+!**/.env
+!**/.env*

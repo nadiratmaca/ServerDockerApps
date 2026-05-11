@@ -1,0 +1,16 @@
+
+include:
+  - docker-networks.yml
+  - ./npm/docker-compose.yml
+  - ./mariadb/docker-compose.yml
+  #- ./pma/docker-compose.yml
+  - ./smtp/docker-compose.yml  
+  - ./redis/docker-compose.yml
+
+  # - docker-compose-portainer.yml
+  # - docker-compose-grafana.yml
+  # - docker-compose-kuma-uptime.yml
+  # - docker-compose-casaos.yml
+  # - docker-compose-memcached.yml
+  # - docker-compose-kodexpolorer.yml
+  # - docker-compose-traefik.yml

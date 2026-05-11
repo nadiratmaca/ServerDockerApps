@@ -19,18 +19,17 @@
 
 
 # Alt klasörlerdeki aynı isimli dosyaları da dahil et
-!**/conf*/
-!**/Dockerfile
-!**/docker-compose.yml
-!**/docker-compose.y*
-!**/.env
-!**/.env*
 
-
-
-
-
-
+!/Dockerfile
+!/docker-compose.yml
+!/docker-*.y*
+!/.env
+!/.env*
+!/.gitignore
+!/*.ini
+!/.conf
+!/*.cnf
+!/*.php
 
 
 

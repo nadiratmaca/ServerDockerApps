@@ -3,7 +3,7 @@
 
 # 2. Klasör yapısında gezinebilmesi için dizinleri engelleme
 !*/
-
+**/_* /
 # 3. Belirli dosya uzantılarını ve isimlerini serbest bırak (whitelist)
 !/Dockerfile
 !/docker-compose.yml

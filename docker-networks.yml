@@ -1,0 +1,5 @@
+networks:
+  db: 
+    external: true
+  web: 
+    external: true
